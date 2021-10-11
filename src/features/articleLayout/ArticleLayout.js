@@ -5,6 +5,8 @@ import React from "react";
 export const ArticleLayout = (props) => {
 
     return (
-        <div></div>
+        <div>
+            {/* Map out article */}
+        </div>
     )
 }
