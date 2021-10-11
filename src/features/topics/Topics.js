@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { submitTopics } from "../topics/topicsSlice";
 import { useDispatch } from 'react-redux';
+import { clearArticles } from "../articleLayout/articlesSlice";
 
 
 
@@ -20,6 +21,7 @@ export const Topics = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(clearArticles())
         dispatch(submitTopics(topics))
     }
 
