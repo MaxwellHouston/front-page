@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import { submitTopics } from "../topics/topicsSlice";
+import { useDispatch } from 'react-redux';
 
 
 
-export const Topics = (props) => {
-
-    const [topics, setTopics] = useState([])
-
+export const Topics = () => {
+    const dispatch = useDispatch();
+    const [topics, setTopics] = useState([]);
+   
     const toggleTopic = ({ target }) => {
         if(target.checked) {
             setTopics( prev => [...prev, target.value])
@@ -18,7 +20,7 @@ export const Topics = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target)
+        dispatch(submitTopics(topics))
     }
 
 
