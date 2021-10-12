@@ -1,9 +1,81 @@
-.award-container {
-  height: 75px;
-  width: 100%;
+body {
+  font-size: 16px;
+  background-color: rgb(51, 50, 50)
+}
+/*Content*/
+.content {
+  width: 75%;
+  margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
 }
 
-.award img {
-  height: 50px;
+/*Header*/
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 6rem;
 }
+
+h1 {
+
+}
+
+header button {
+  width: 6rem;
+  background-color: white;
+  background-image: url('./utility/images/dropdown-icon.png');
+  background-size: cover;
+}
+
+/*Article previews*/
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.article-preview {
+  width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: solid 5px black;
+}
+
+.article-preview img {
+  width: 70%;
+}
+
+/*article-awards*/
+.award-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.award-container img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.award {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: .125rem;
+  height: 1.8rem;
+}
+
+.award p {
+  margin-left: .07rem;
+}
+
+.upVotes {
+  background-image: url('./utility/images/arrows.png');
+  background-size: cover;
+}
+

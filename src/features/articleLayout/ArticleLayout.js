@@ -28,7 +28,7 @@ export const ArticleLayout = () => {
 
 
     return (
-        <div>
+        <div className="preview-container">
             {articles.map(article => <ArticlePreview key={article.data.id} article={article.data} />)}
         </div>
     )

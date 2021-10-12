@@ -35,8 +35,8 @@ export const ArticlePreview = ({article}) => {
             <div className='award-container'>
                 {renderAwards()}
             </div>
-            {mediaSelector()}
             <p className="upVotes">{article.ups - article.downs}</p>
+            {mediaSelector()}
             <hr/>
             <div className="footer info">
                 <p>{article.author}</p>
