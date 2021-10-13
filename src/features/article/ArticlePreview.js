@@ -1,5 +1,6 @@
 import React from "react";
 import noImage from '../../utility/images/no-image.png';
+import { Link } from "react-router-dom";
 
 export const ArticlePreview = ({article}) => {
 
@@ -41,7 +42,7 @@ export const ArticlePreview = ({article}) => {
             <div className="footer info">
                 <p>{article.author}</p>
                 <p>{dateConverter()}</p>
-                <p>Full Article</p>
+                <Link to={`/${article.id}`}><p>Full Article</p></Link>
             </div>
             
             

@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 //Data and functions
 const initialState = {
     articles: [],
+    loaded: false,
     isLoading: false,
     hasError: false
 };
@@ -16,6 +17,8 @@ const fetchArticles = async (subreddit) => {
 //Exports
 
 export const selectArticles = state => state.articles.articles;
+export const articlesLoaded = state => state.articles.loaded;
+
 
 export const loadArticles = createAsyncThunk(
     'articles/loadArticles',
@@ -36,6 +39,7 @@ const articlesSlice = createSlice({
     reducers: {
         clearArticles: (state) => {
             state.articles = [];
+            state.loaded = false;
         }
     },
     extraReducers: {
@@ -45,6 +49,7 @@ const articlesSlice = createSlice({
         },
         [loadArticles.fulfilled]: (state, action) => {
             action.payload.forEach(article => state.articles.push(article));
+            state.loaded = true;
             state.isLoading = false;
             state.hasError = false;
         },

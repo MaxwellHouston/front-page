@@ -1,21 +1,16 @@
 import React from "react";
+import avatar from '../../utility/images/avatar.png';
 
 
-
-
-export const Comments = (props) => {
+export const Comment = ({data}) => {
 
 
     return (
         <div className="comments">
-            <img src="#" alt="avatar" />
-            <h2>Commenter User Name</h2>
-            <p> comment </p>
-            <div className="likes">
-                <img src="#" alt="up arrow" />
-                <p>number of likes</p>
-                <img src= "#" alt ="down arrow" />
-            </div>
+            <img src={avatar} alt="avatar" />
+            <h2>{data.author}</h2>
+            <p> {data.body} </p>
+            <p className="upVotes">{data.ups - data.downs}</p>
         </div>
     )
 }

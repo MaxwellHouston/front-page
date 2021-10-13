@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectTopics } from "../topics/topicsSlice";
-import { loadArticles, selectArticles } from "./articlesSlice";
+import { articlesLoaded, loadArticles, selectArticles } from "./articlesSlice";
 import { subredditList } from "../../utility/subreddits";
 import { ArticlePreview } from "../article/ArticlePreview";
 
@@ -9,6 +9,7 @@ import { ArticlePreview } from "../article/ArticlePreview";
 export const ArticleLayout = () => {
     const dispatch = useDispatch();
     const topics = useSelector(selectTopics);
+    const isLoaded = useSelector(articlesLoaded);
     const [subreddits, setSubreddits] = useState([]);
     const articles = useSelector(selectArticles);
 
@@ -22,8 +23,9 @@ export const ArticleLayout = () => {
 
     useEffect(()=>{
         if(subreddits.length === 0){return}
+        if(isLoaded){return}
         dispatch(loadArticles(subreddits))
-    },[subreddits, dispatch])
+    },[dispatch, subreddits, isLoaded])
 
 
 

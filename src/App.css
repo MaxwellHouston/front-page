@@ -31,6 +31,39 @@ header button {
   background-size: cover;
 }
 
+/*Topics*/
+
+.topics {
+  width: 50rem;
+  height: 30rem;
+  background-color: rgb(192, 187, 187);
+  color: rgb(36, 36, 41);
+}
+
+.topics h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  height: 20rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-items: center;
+}
+
+.input-group {
+  margin: 2.5rem;
+}
+
+#submit {
+  font-size: 2rem;
+}
+
+
+
 /*Article previews*/
 .preview-container {
   display: flex;
@@ -79,3 +112,12 @@ header button {
   background-size: cover;
 }
 
+/*Article*/
+
+
+/*Comments*/
+
+.comments-container {
+  height: 700px;
+  overflow: scroll;
+}

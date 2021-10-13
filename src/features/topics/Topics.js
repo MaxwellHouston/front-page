@@ -3,6 +3,7 @@ import { useState } from "react";
 import { submitTopics } from "../topics/topicsSlice";
 import { useDispatch } from 'react-redux';
 import { clearArticles } from "../articleLayout/articlesSlice";
+import { toggleTopics } from "../settings/settingsSlice";
 
 
 
@@ -23,31 +24,52 @@ export const Topics = () => {
         e.preventDefault();
         dispatch(clearArticles())
         dispatch(submitTopics(topics))
+        dispatch(toggleTopics())
     }
 
 
     return(
-        <form onSubmit={handleSubmit}>
+        <div className='topics'>
             <h2>Choose your content</h2>
-            <label for="news">News</label>
-            <input onClick={toggleTopic} type="checkbox" id="news" value="news"/>
-            <label for="tech">Tech</label>
-            <input onClick={toggleTopic} type="checkbox" id="tech" value="tech"/>
-            <label for="travel">Travel</label>
-            <input onClick={toggleTopic} type="checkbox" id="travel" value="travel"/>
-            <label for="fashion">Fashion</label>
-            <input onClick={toggleTopic} type="checkbox" id="fashion" value="fashion"/>
-            <label for="humor">Humor</label>
-            <input onClick={toggleTopic} type="checkbox" id="humor" value="humor"/>
-            <label for="gaming">Gaming</label>
-            <input onClick={toggleTopic} type="checkbox" id="gaming" value="gaming"/>
-            <label for="cars">Cars</label>
-            <input onClick={toggleTopic} type="checkbox" id="cars" value="cars"/>
-            <label for="animals">Animals</label>
-            <input onClick={toggleTopic} type="checkbox" id="animals" value="animals"/>
-            <label for="sports">Sports</label>
-            <input onClick={toggleTopic} type="checkbox" id="sports" value="sports"/>
-            <input type="submit" value="submit" />
-        </form>
+            <form onSubmit={handleSubmit}>
+                <div className='input-group'>
+                <label for="news">News</label>
+                <input onClick={toggleTopic} type="checkbox" id="news" value="news"/>
+                </div>
+                <div className='input-group'>
+                <label for="tech">Tech</label>
+                <input onClick={toggleTopic} type="checkbox" id="tech" value="tech"/>
+                </div>
+                <div className='input-group'>
+                <label for="travel">Travel</label>
+                <input onClick={toggleTopic} type="checkbox" id="travel" value="travel"/>
+                </div>
+                <div className='input-group'>
+                <label for="fashion">Fashion</label>
+                <input onClick={toggleTopic} type="checkbox" id="fashion" value="fashion"/>
+                </div>
+                <div className='input-group'>
+                <label for="humor">Humor</label>
+                <input onClick={toggleTopic} type="checkbox" id="humor" value="humor"/>
+                </div>
+                <div className='input-group'>
+                <label for="gaming">Gaming</label>
+                <input onClick={toggleTopic} type="checkbox" id="gaming" value="gaming"/>
+                </div>
+                <div className='input-group'>
+                <label for="cars">Cars</label>
+                <input onClick={toggleTopic} type="checkbox" id="cars" value="cars"/>
+                </div>
+                <div className='input-group'>
+                <label for="animals">Animals</label>
+                <input onClick={toggleTopic} type="checkbox" id="animals" value="animals"/>
+                </div>
+                <div className='input-group'>
+                <label for="sports">Sports</label>
+                <input onClick={toggleTopic} type="checkbox" id="sports" value="sports"/>
+                </div>
+                <input id='submit' type="submit" value="submit" />
+            </form>
+        </div>
     )
 }
