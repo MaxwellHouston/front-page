@@ -1,23 +1,28 @@
+@import 'normalize';
+
 body {
   font-size: 16px;
-  background-color: rgb(51, 50, 50)
+  background-color: rgb(51, 50, 50);
+  margin: 0;
 }
 /*Content*/
 .content {
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: white;
 }
 
 /*Header*/
 header {
   width: 100%;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   height: 6rem;
+  background-color: rgb(138, 133, 133);
+  z-index: 5;
 }
 
 h1 {
@@ -34,6 +39,9 @@ header button {
 /*Topics*/
 
 .topics {
+  position: fixed;
+  top: 7rem;
+  margin-top: 7rem;
   width: 50rem;
   height: 30rem;
   background-color: rgb(192, 187, 187);
@@ -66,27 +74,68 @@ form {
 
 /*Article previews*/
 .preview-container {
+  width: 75%;
+  margin: 6rem auto 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  background-color: white;
 }
 
 .article-preview {
-  width: 30%;
+  width: 25%;
+  height: 26rem;
+  margin: 2rem 0;
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
   justify-content: center;
-  border: solid 5px black;
+  align-items: center;
+  border: solid 1px black;
+  box-shadow: 5px 5px 5px black;
 }
 
-.article-preview img {
-  width: 70%;
+.article-preview h2 {
+  width: 95%;
+  font-size: 1.4rem;
+}
+
+.large-title {
+  font-size: 1rem !important;
+}
+
+.thumbnail {
+  width: 60%;
+  text-align: left;
+  font-size: .75rem;
+}
+
+.article-preview .upVotes {
+  width: 20%;
+  font-size: .75rem;
+  padding: 1.5rem 0;
+}
+
+.filler {
+  width: 20%;
+}
+
+hr {
+  width: 90%;
+}
+
+.footer {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  font-size: .5rem;
 }
 
 /*article-awards*/
 .award-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
 }
 
@@ -110,14 +159,173 @@ form {
 .upVotes {
   background-image: url('./utility/images/arrows.png');
   background-size: cover;
+  background-position: center;
+  
 }
 
 /*Article*/
 
+article {
+  margin-top: 7.5rem;
+  width: 60%; 
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.article-header {
+  display: flex;
+  width: 100%;
+}
+
+.back-button {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+  height: 1.5rem;
+  position: relative;
+  top: .75rem;
+  left: .75rem;
+}
+
+article button {
+  border: none;
+  background-color: white;
+}
+
+article h2 {
+  padding-top: 2rem;
+  text-align: center;
+  width: 80%;
+}
+
+.article-content {
+  width: 80%;
+  height: 25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.article-content a {
+  width: 80%;
+  text-align: center;
+}
+
+.article-content img {
+  width: 30%;
+  height: 30%;
+}
+
+.article-content-single {
+  width: 80%;
+  height: 40rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+}
+
+.article-content-single video,
+.article-content-single img {
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 3rem;
+  width: 60%;
+}
+
+
+.up-votes {
+  display: flex;
+}
+
+.votes {
+  margin: 0 .5rem;
+}
+
+.up-votes img {
+  width: 1rem;
+}
 
 /*Comments*/
 
 .comments-container {
   height: 700px;
   overflow: scroll;
+  background-color: thistle;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.comments {
+  width: 75%;
+  padding-bottom: 3rem;
+  margin: 3rem;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.comments-header {
+  display: flex;
+  height: 5rem;
+  width: 100%;
+}
+
+.comments-header img {
+  border-radius: 50%;
+  margin: 1rem;
+}
+
+.comments-header h2 {
+  margin: 0 3rem;
+  align-self: center;
+  text-align: left;
+}
+
+.comments-body {
+  text-align: center;
+  width: 60%;
+  margin: 1rem 5rem;
+} 
+
+.comments .up-votes {
+  margin: .6rem;
+  width: auto;
+}
+
+/*Settings*/
+
+nav {
+  position: fixed;
+  right: 0;
+  top: 6rem;
+  width: 12.5%;
+  background-color: black;
+  color: white;
+}
+
+nav ul {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav li {
+  list-style: none;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 2rem;
 }

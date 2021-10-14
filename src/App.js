@@ -15,18 +15,20 @@ function App() {
   const renderSettings = useSelector(isSettingsRendered);
   
   return (
-    <div className="content">
+    <div>
       <header>
         <img src={logo} alt='reddit-logo' />
         <h1>Front Page</h1>
         <button onClick={()=>{dispatch(toggleSettings())}}></button>
       </header>
-      <Router>
-      <Route path='/' exact component={ArticleLayout} />
-      <Route path='/:id' component = {Article} />
-      </Router>
-      {renderSettings && <Settings />}
-      {renderTopics && <Topics />}
+      <div className="content">
+        <Router>
+        <Route path='/' exact component={ArticleLayout} />
+        <Route path='/:id' component = {Article} />
+        </Router>
+        {renderSettings && <Settings />}
+        {renderTopics && <Topics />}
+      </div>
     </div>
   );
 }

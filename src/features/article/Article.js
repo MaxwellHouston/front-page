@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { renderAwards, dateConverter } from "../../utility/functions";
 import noImage from '../../utility/images/no-image.png';
+import upArrow from '../../utility/images/up-arrow.png';
+import downArrow from '../../utility/images/down-arrow.png';
 import { Link } from "react-router-dom";
 import { Comment } from '../comments/Comment';
+
 
 
 
@@ -26,25 +29,39 @@ export const Article = ({match}) => {
 
     const fullMediaSelector = () => {
         if(fullArticle.is_video){
-            return <video src={fullArticle.media.reddit_video.fallback_url} controls>Video not supported</video>
+            return (
+                <div className='article-content-single'>
+                    <video src={fullArticle.media.reddit_video.fallback_url} controls>Video not supported</video>
+                </div>
+                )
         } else if(fullArticle.thumbnail === 'default' || fullArticle.thumbnail === ''){
-            return (<div>
-                <img src={noImage} alt='not avilable' />
-                <a href={fullArticle.url}><p>Link to article</p></a>
-            </div>)
+            return (
+                <div className='article-content'>
+                    <img src={noImage} alt='not avilable' />
+                    <a href={fullArticle.url}><p>Link to article</p></a>
+                </div>
+                )
         } else if(fullArticle.post_hint === 'link'){
-            return (<div>
-                <img src={fullArticle.thumbnail} alt='not avilable' />
-                <a href={fullArticle.url}><p>Link to article</p></a>
-            </div>)
+            return (
+                <div className='article-content'>
+                    <img src={fullArticle.thumbnail} alt='not avilable' />
+                    <a href={fullArticle.url}><p>Link to article</p></a>
+                </div>
+                )
         } else if(fullArticle.is_gallery){
-          return (<div>
+            return (
+                <div className='article-content'>
                     <img src={fullArticle.thumbnail} alt='not avilable' />
                     <a href={fullArticle.url}><p>Link to gallery</p></a>
-                 </div>)
+                </div>
+                )
         }
          else {
-            return <img src={fullArticle.url} alt='' />
+            return (
+            <div className='article-content-single'>
+                <img src={fullArticle.url} alt='' />
+            </div>
+            )
         }
     }
 
@@ -54,15 +71,24 @@ export const Article = ({match}) => {
 
     return (
         <article>
-        <h1 className="article-title">{article.title}</h1>
-        <Link to='/'><button>Return</button></Link>
+        <div className='article-header'>
+            <Link to='/' className='back-button'><button>Back to Front Page</button></Link>
+            <h2>{article.title}</h2>
+        </div>
         <div className='award-container'>
                 {renderAwards(article)}
-            </div>
-        <p className="upVotes">{article.ups - article.downs}</p>
+        </div>
         {fullMediaSelector()}
+        <div className='article-footer'>
+        <div className="up-votes">
+            <img src={upArrow} alt='up arrow' />
+            <p className="votes">{article.ups - article.downs}</p>
+            <img src={downArrow} alt='down arrow' />
+        </div>
         <p className="poster">{fullArticle.author}</p>
         <p className="date">{dateConverter(fullArticle)}</p>
+        </div>
+        
         <div className="comments-container">
             {comments.map(comment => <Comment key={comment.id} data={comment} />)}
         </div>
