@@ -24,7 +24,6 @@ export const Article = ({match}) => {
         let commentArray = json[1].data.children.map(comment => comment.data)
         setComments(commentArray);
         setFullArticle(json[0].data.children[0].data);
-        console.log(json)
     };
 
     const fullMediaSelector = () => {
