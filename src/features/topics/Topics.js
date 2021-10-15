@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { submitTopics } from "../topics/topicsSlice";
-import { useDispatch } from 'react-redux';
+import { submitTopics, selectTopics } from "../topics/topicsSlice";
+import { useDispatch, useSelector } from 'react-redux';
 import { clearArticles } from "../articleLayout/articlesSlice";
 import { toggleTopics } from "../settings/settingsSlice";
 
@@ -9,6 +9,7 @@ import { toggleTopics } from "../settings/settingsSlice";
 
 export const Topics = () => {
     const dispatch = useDispatch();
+    const stateTopics = useSelector(selectTopics);
     const [topics, setTopics] = useState([]);
    
     const toggleTopic = ({ target }) => {
@@ -19,6 +20,15 @@ export const Topics = () => {
             setTopics(newTopics)
         }
     }
+
+    const isChecked = ({target}) => {
+        if(stateTopics.includes(target.value)){
+            target.checked = true;
+        }
+        console.log(target.value)
+    }
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,7 +44,7 @@ export const Topics = () => {
             <form onSubmit={handleSubmit}>
                 <div className='input-group'>
                 <label for="news">News</label>
-                <input onClick={toggleTopic} type="checkbox" id="news" value="news"/>
+                <input onLoad={isChecked} onClick={toggleTopic} type="checkbox" id="news" value="news"/>
                 </div>
                 <div className='input-group'>
                 <label for="tech">Tech</label>

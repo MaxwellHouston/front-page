@@ -10,3 +10,11 @@ export const store = configureStore({
     settings: settingsSlice
   },
 });
+
+export const testStore = configureStore({
+  reducer: {
+    articles: articlesSlice,
+    topics: topicsSlice,
+    settings: settingsSlice
+  },
+});

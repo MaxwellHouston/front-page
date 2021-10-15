@@ -9,7 +9,7 @@ export const Settings = () => {
     return (
         <nav>
             <ul>
-                <li onClick={()=>{dispatch(toggleTopics())}}>Add/Remove Topics</li>
+                <li className='button' onClick={()=>{dispatch(toggleTopics())}}>Add/Remove Topics</li>
                 <li className="coming-soon">Filters</li>
                 <li className="coming-soon">Change Account</li>
                 <li>Normal Mode</li>

@@ -10,7 +10,7 @@ export const ArticlePreview = ({article}) => {
             if(article.selftext.includes('twitter.com')){
                return <img className='thumbnail' src={twitter} alt='twitter logo' />    
             }
-            return <p className='thumbnail'>{article.selftext}</p>
+            return <p className='thumbnail-text'>{article.selftext}</p>
         } else if(article.thumbnail === 'default' || article.thumbnail === ''){
             return <img className='thumbnail' src={noImage} alt='' />
         } else {
