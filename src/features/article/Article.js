@@ -8,7 +8,8 @@ import downArrow from '../../utility/images/down-arrow.png';
 import { Link } from "react-router-dom";
 import { Comment } from '../comments/Comment';
 import { colorway } from "../../utility/colorway";
-import twitter from '../../utility/images/twitter-logo.png'
+import twitter from '../../utility/images/twitter-logo.png';
+import { isDarkMode } from "../settings/settingsSlice";
 
 
 
@@ -19,6 +20,8 @@ export const Article = ({match}) => {
     const getArticleById = useSelector(state => state.articles.articles.filter(article => article.data.id === match.params.id));
     const article = getArticleById[0].data;
     const { normal, dark } = colorway;
+    const darkMode = useSelector(isDarkMode);
+    const colors = darkMode ? dark : normal;
 
     const fetchFullArticle = async () => {
         let url = `https://www.reddit.com${article.permalink}.json`;
@@ -81,9 +84,9 @@ export const Article = ({match}) => {
     },[]);
 
     return (
-        <article style={normal.article.article}>
+        <article style={colors.article.article}>
         <div className='article-header'>
-            <Link to='/' className='back-button'><button style={normal.article.button}>Back to Front Page</button></Link>
+            <Link to='/' className='back-button'><button style={colors.article.button}>Back to Front Page</button></Link>
             <h2>{article.title}</h2>
         </div>
         <div className='award-container'>
@@ -100,7 +103,7 @@ export const Article = ({match}) => {
             <p className="date">{dateConverter(fullArticle)}</p>
         </div>
         { comments.length !== 0 &&
-        <div className="comments-container" style={normal.comments.commentsContainer}>
+        <div className="comments-container" style={colors.comments.commentsContainer}>
             <h2>Comments</h2>
             {comments.map(comment => <Comment key={comment.id} data={comment} />)}
         </div>}

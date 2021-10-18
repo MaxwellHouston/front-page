@@ -1,7 +1,7 @@
 export const colorway = {
     normal: {
-        body: {
-            body: {
+        app: {
+            content: {
                 backgroundColor: '#eaecf1'
             }
         },
@@ -28,14 +28,17 @@ export const colorway = {
                 backgroundColor: '#9099a2'
             },
             articlePreview: {
-                backgroundColor: '#d5d5d5',
+                backgroundColor: 'white',
                 boxShadow: '5px 5px 5px #191c22'
             },
             thumbnailText: {
-                backgroundColor: '#d5d5d5'
+                backgroundColor: 'white'
             },
             upVotes: {
-                backgroundColor: '#d5d5d5'
+                backgroundColor: 'white'
+            },
+            articleLink: {
+                color: 'blue'
             }
         },
         article: {
@@ -71,7 +74,84 @@ export const colorway = {
             }
         }
     },
-    dark: {}
+    //-------------------------------------------Dark Mode--------------------------------------------------------------------//
+    dark: {
+         app: {
+            content: {
+                backgroundColor: '#191c22'
+            }
+        },
+        topics: {
+            topic: {
+                backgroundColor: '#46505c',
+                color: 'white'
+            }     
+        },
+        header: {
+            header: {
+                backgroundColor: 'black'
+            },
+            headerButton: {
+                backgroundColor:'black',
+                color: 'white'
+            },
+            headerH1: {
+                color: 'white'
+            }
+        },
+        articlePreview: {
+            previewContainer: {
+                backgroundColor: '#46505c'
+            },
+            articlePreview: {
+                backgroundColor: '#191c22',
+                boxShadow: '5px 5px 5px black',
+                color: 'white'
+            },
+            thumbnailText: {
+                backgroundColor: '#191c22'
+            },
+            upVotes: {
+                backgroundColor: '#191c22'
+            },
+            articleLink: {
+                color: 'white'
+            }
+        },
+        article: {
+            article: {
+                backgroundColor: '#46505c',
+                border: 'solid 2px #191c22',
+                boxShadow: '5px 5px 5px #191c22',
+                color: 'white'
+            },
+            button: {
+                backgroundColor: '#46505c',
+                color: 'white'
+            },
+            articleText: {
+                backgroundColor: '#46505c'
+            }
+        },
+        comments: {
+            commentsContainer: {
+                backgroundColor: '#46505c',
+                borderTop: 'solid 15px black',  
+            },
+            comments: {
+                backgroundColor: '#191c22',
+                border: 'solid 1px black',
+                boxShadow: '3px 3px 5px black'
+            }
+        },
+        settings: {
+            nav: {
+                backgroundColor: 'black',
+                color: 'white',
+                border: 'solid 3px #191c22'
+            }
+        }
+    }
 }
 
 

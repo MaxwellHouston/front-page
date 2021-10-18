@@ -3,7 +3,7 @@ import { useState } from "react";
 import { submitTopics, selectTopics } from "../topics/topicsSlice";
 import { useDispatch, useSelector } from 'react-redux';
 import { clearArticles } from "../articleLayout/articlesSlice";
-import { toggleTopics } from "../settings/settingsSlice";
+import { toggleTopics, isDarkMode } from "../settings/settingsSlice";
 import { colorway } from "../../utility/colorway";
 
 
@@ -13,6 +13,8 @@ export const Topics = () => {
     const stateTopics = useSelector(selectTopics);
     const [topics, setTopics] = useState([]);
     const { normal, dark } = colorway;
+    const darkMode = useSelector(isDarkMode);
+    const colors = darkMode ? dark : normal;
    
     const toggleTopic = ({ target }) => {
         if(target.checked) {
@@ -41,7 +43,7 @@ export const Topics = () => {
 
 
     return(
-        <div className='topics' style={normal.topics.topic}>
+        <div className='topics' style={colors.topics.topic}>
             <h2>Choose your topics</h2>
             <form onSubmit={handleSubmit}>
                 <div className='input-group'>

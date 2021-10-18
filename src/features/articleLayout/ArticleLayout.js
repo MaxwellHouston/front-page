@@ -6,7 +6,7 @@ import { subredditList } from "../../utility/subreddits";
 import { ArticlePreview } from "../article/ArticlePreview";
 import { colorway } from "../../utility/colorway";
 import { LoadingArticle } from "./LoadingArticle";
-import { shuffleArray } from "../../utility/functions";
+import { isDarkMode } from "../settings/settingsSlice";
 
 
 export const ArticleLayout = () => {
@@ -16,6 +16,8 @@ export const ArticleLayout = () => {
     const [subreddits, setSubreddits] = useState([]);
     const articles = useSelector(selectArticles);
     const { normal, dark } = colorway;
+    const darkMode = useSelector(isDarkMode);
+    const colors = darkMode ? dark : normal;
     const articlesLoading = useSelector(isLoading);
   
     useEffect(()=>{
@@ -47,7 +49,7 @@ export const ArticleLayout = () => {
 
 
     return (
-        <div className="preview-container" style={normal.articlePreview.previewContainer}>
+        <div className="preview-container" style={colors.articlePreview.previewContainer}>
             {loadingRender()}
         </div>
     )

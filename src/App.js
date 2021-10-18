@@ -7,7 +7,7 @@ import { Article } from './features/article/Article';
 import { Settings } from './features/settings/Settings';
 import { Topics } from './features/topics/Topics';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-import { isTopicsRendered, isSettingsRendered, toggleSettings } from './features/settings/settingsSlice';
+import { isTopicsRendered, isSettingsRendered, isDarkMode, toggleSettings } from './features/settings/settingsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
@@ -15,13 +15,14 @@ function App() {
   const renderTopics = useSelector(isTopicsRendered);
   const renderSettings = useSelector(isSettingsRendered);
   const { normal, dark } = colorway;
-  
+  const darkMode = useSelector(isDarkMode);
+  const colors = darkMode ? dark : normal;
   return (
-    <div>
-      <header style={normal.header.header}>
+    <div className='background' style={colors.app.content} >
+      <header style={colors.header.header}>
         <img src={logo} alt='reddit-logo' />
-        <h1 style={normal.header.headerH1}>Front Page</h1>
-        <button onClick={()=>{dispatch(toggleSettings())}} style={normal.header.headerButton}>Menu</button>
+        <h1 style={colors.header.headerH1}>Front Page <span>personal Reddit browser</span></h1>
+        <button onClick={()=>{dispatch(toggleSettings())}} style={colors.header.headerButton}>Menu</button>
       </header>
       <div className="content">
         <Router>
