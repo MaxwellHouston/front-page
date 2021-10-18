@@ -13,9 +13,12 @@ const topicsSlice = createSlice({
         submitTopics: (state, action) => {
             state.topics = action.payload;
         },
+        clearTopics: (state) => {
+            state.topics = [];
+        }
     }
 })
 
 
-export const { submitTopics } = topicsSlice.actions;
+export const { submitTopics, clearTopics } = topicsSlice.actions;
 export default topicsSlice.reducer;

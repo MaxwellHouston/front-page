@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectTopics } from "../topics/topicsSlice";
+import { selectTopics, clearTopics } from "../topics/topicsSlice";
 import { articlesLoaded, loadArticles, selectArticles, isLoading } from "./articlesSlice";
 import { subredditList } from "../../utility/subreddits";
 import { ArticlePreview } from "../article/ArticlePreview";
@@ -32,6 +32,7 @@ export const ArticleLayout = () => {
         if(subreddits.length === 0){return}
         if(isLoaded){return}
         dispatch(loadArticles(subreddits))
+        dispatch(clearTopics())
     },[dispatch, subreddits, isLoaded])
 
     const loadingRender = () => {
