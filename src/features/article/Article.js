@@ -99,12 +99,11 @@ export const Article = ({match}) => {
             <p className="poster">Posted by: {fullArticle.author}</p>
             <p className="date">{dateConverter(fullArticle)}</p>
         </div>
-        
+        { comments.length !== 0 &&
         <div className="comments-container" style={normal.comments.commentsContainer}>
             <h2>Comments</h2>
             {comments.map(comment => <Comment key={comment.id} data={comment} />)}
-        </div>
-        
+        </div>}
         </article>
         
     )

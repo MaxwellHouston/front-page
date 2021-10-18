@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { shuffleArray } from '../../utility/functions';
 //Data and functions
 const initialState = {
     articles: [],
@@ -16,7 +17,7 @@ const fetchArticles = async (subreddit) => {
 
 //Exports
 
-export const selectArticles = state => state.articles.articles;
+export const selectArticles = state =>state.articles.articles;
 export const articlesLoaded = state => state.articles.loaded;
 export const isLoading = state => state.articles.isLoading;
 
@@ -29,6 +30,7 @@ export const loadArticles = createAsyncThunk(
             let list = await fetchArticles(sub);
             list.forEach(article => ARTICLES.push(article))
         }
+        shuffleArray(ARTICLES);
         return ARTICLES;
     }
 )

@@ -6,6 +6,7 @@ import { subredditList } from "../../utility/subreddits";
 import { ArticlePreview } from "../article/ArticlePreview";
 import { colorway } from "../../utility/colorway";
 import { LoadingArticle } from "./LoadingArticle";
+import { shuffleArray } from "../../utility/functions";
 
 
 export const ArticleLayout = () => {
@@ -16,7 +17,7 @@ export const ArticleLayout = () => {
     const articles = useSelector(selectArticles);
     const { normal, dark } = colorway;
     const articlesLoading = useSelector(isLoading);
-
+  
     useEffect(()=>{
         let subs = [];
         for(const topic of topics){
