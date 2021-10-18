@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { colorway } from './utility/colorway';
 import logo from './utility/images/reddit-logo.png';
 import { ArticleLayout } from './features/articleLayout/ArticleLayout';
 import { Article } from './features/article/Article';
@@ -13,13 +14,14 @@ function App() {
   const dispatch = useDispatch();
   const renderTopics = useSelector(isTopicsRendered);
   const renderSettings = useSelector(isSettingsRendered);
+  const { normal, dark } = colorway;
   
   return (
     <div>
-      <header>
+      <header style={normal.header.header}>
         <img src={logo} alt='reddit-logo' />
-        <h1>Front Page</h1>
-        <button onClick={()=>{dispatch(toggleSettings())}}></button>
+        <h1 style={normal.header.headerH1}>Front Page</h1>
+        <button onClick={()=>{dispatch(toggleSettings())}} style={normal.header.headerButton}>Menu</button>
       </header>
       <div className="content">
         <Router>

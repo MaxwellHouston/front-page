@@ -18,6 +18,7 @@ const fetchArticles = async (subreddit) => {
 
 export const selectArticles = state => state.articles.articles;
 export const articlesLoaded = state => state.articles.loaded;
+export const isLoading = state => state.articles.isLoading;
 
 
 export const loadArticles = createAsyncThunk(

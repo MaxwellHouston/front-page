@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectTopics } from "../topics/topicsSlice";
-import { articlesLoaded, loadArticles, selectArticles } from "./articlesSlice";
+import { articlesLoaded, loadArticles, selectArticles, isLoading } from "./articlesSlice";
 import { subredditList } from "../../utility/subreddits";
 import { ArticlePreview } from "../article/ArticlePreview";
+import { colorway } from "../../utility/colorway";
+import { LoadingArticle } from "./LoadingArticle";
 
 
 export const ArticleLayout = () => {
@@ -12,6 +14,8 @@ export const ArticleLayout = () => {
     const isLoaded = useSelector(articlesLoaded);
     const [subreddits, setSubreddits] = useState([]);
     const articles = useSelector(selectArticles);
+    const { normal, dark } = colorway;
+    const articlesLoading = useSelector(isLoading);
 
     useEffect(()=>{
         let subs = [];
@@ -27,11 +31,23 @@ export const ArticleLayout = () => {
         dispatch(loadArticles(subreddits))
     },[dispatch, subreddits, isLoaded])
 
+    const loadingRender = () => {
+        if(articlesLoading){
+            let loadingArticles = [];
+            for(let i = 0; i < 9; i++){
+                loadingArticles.push(<LoadingArticle key={i} />)
+            }
+            return loadingArticles;
+        } else {
+            let loadedArticles = articles.map(article => <ArticlePreview key={article.data.id} article={article.data} />);
+            return loadedArticles;
+        }
+    }
 
 
     return (
-        <div className="preview-container">
-            {articles.map(article => <ArticlePreview key={article.data.id} article={article.data} />)}
+        <div className="preview-container" style={normal.articlePreview.previewContainer}>
+            {loadingRender()}
         </div>
     )
 }

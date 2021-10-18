@@ -4,6 +4,7 @@ import { submitTopics, selectTopics } from "../topics/topicsSlice";
 import { useDispatch, useSelector } from 'react-redux';
 import { clearArticles } from "../articleLayout/articlesSlice";
 import { toggleTopics } from "../settings/settingsSlice";
+import { colorway } from "../../utility/colorway";
 
 
 
@@ -11,6 +12,7 @@ export const Topics = () => {
     const dispatch = useDispatch();
     const stateTopics = useSelector(selectTopics);
     const [topics, setTopics] = useState([]);
+    const { normal, dark } = colorway;
    
     const toggleTopic = ({ target }) => {
         if(target.checked) {
@@ -39,8 +41,8 @@ export const Topics = () => {
 
 
     return(
-        <div className='topics'>
-            <h2>Choose your content</h2>
+        <div className='topics' style={normal.topics.topic}>
+            <h2>Choose your topics</h2>
             <form onSubmit={handleSubmit}>
                 <div className='input-group'>
                 <label for="news">News</label>
@@ -78,7 +80,7 @@ export const Topics = () => {
                 <label for="sports">Sports</label>
                 <input onClick={toggleTopic} type="checkbox" id="sports" value="sports"/>
                 </div>
-                <input id='submit' type="submit" value="submit" />
+                <input id='submit' type="submit" value="Submit" />
             </form>
         </div>
     )

@@ -7,6 +7,8 @@ import upArrow from '../../utility/images/up-arrow.png';
 import downArrow from '../../utility/images/down-arrow.png';
 import { Link } from "react-router-dom";
 import { Comment } from '../comments/Comment';
+import { colorway } from "../../utility/colorway";
+import twitter from '../../utility/images/twitter-logo.png'
 
 
 
@@ -16,6 +18,7 @@ export const Article = ({match}) => {
     const [fullArticle, setFullArticle] = useState({})
     const getArticleById = useSelector(state => state.articles.articles.filter(article => article.data.id === match.params.id));
     const article = getArticleById[0].data;
+    const { normal, dark } = colorway;
 
     const fetchFullArticle = async () => {
         let url = `https://www.reddit.com${article.permalink}.json`;
@@ -54,8 +57,17 @@ export const Article = ({match}) => {
                     <a href={fullArticle.url}><p>Link to gallery</p></a>
                 </div>
                 )
-        }
-         else {
+        } else if(article.thumbnail === 'self'){
+            if(article.selftext.includes('twitter.com')){
+                return (
+                    <div className='article-content'>
+                        <img src={twitter} alt='twitter logo' />
+                        <a href={fullArticle.selftext}><p>Link to tweet</p></a>
+                    </div>
+                    )    
+            }
+            return <p className='article-text'>{article.selftext}</p>
+        } else {
             return (
             <div className='article-content-single'>
                 <img src={fullArticle.url} alt='' />
@@ -69,9 +81,9 @@ export const Article = ({match}) => {
     },[]);
 
     return (
-        <article>
+        <article style={normal.article.article}>
         <div className='article-header'>
-            <Link to='/' className='back-button'><button>Back to Front Page</button></Link>
+            <Link to='/' className='back-button'><button style={normal.article.button}>Back to Front Page</button></Link>
             <h2>{article.title}</h2>
         </div>
         <div className='award-container'>
@@ -79,16 +91,17 @@ export const Article = ({match}) => {
         </div>
         {fullMediaSelector()}
         <div className='article-footer'>
-        <div className="up-votes">
-            <img src={upArrow} alt='up arrow' />
-            <p className="votes">{article.ups - article.downs}</p>
-            <img src={downArrow} alt='down arrow' />
-        </div>
-        <p className="poster">{fullArticle.author}</p>
-        <p className="date">{dateConverter(fullArticle)}</p>
+            <div className="up-votes">
+                <img src={upArrow} alt='up arrow' />
+                <p className="votes">{article.ups - article.downs}</p>
+                <img src={downArrow} alt='down arrow' />
+            </div>
+            <p className="poster">Posted by: {fullArticle.author}</p>
+            <p className="date">{dateConverter(fullArticle)}</p>
         </div>
         
-        <div className="comments-container">
+        <div className="comments-container" style={normal.comments.commentsContainer}>
+            <h2>Comments</h2>
             {comments.map(comment => <Comment key={comment.id} data={comment} />)}
         </div>
         

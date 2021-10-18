@@ -13,9 +13,6 @@ const topicsSlice = createSlice({
         submitTopics: (state, action) => {
             state.topics = action.payload;
         },
-        clearTopics: (state) => {
-            state.topics = []
-        }
     }
 })
 

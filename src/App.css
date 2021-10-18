@@ -2,7 +2,7 @@
 
 body {
   font-size: 16px;
-  background-color: #6d7993;
+  background-color: #eaecf1;
   margin: 0;
 }
 /*Content*/
@@ -20,20 +20,26 @@ header {
   position: fixed;
   display: flex;
   justify-content: space-between;
-  height: 6rem;
-  background-color: #96858f;
+  height: 7rem;
+  /*background-color: #46505c;*/
   z-index: 5;
 }
 
-h1 {
+header img {
+  padding: 1rem;
+}
 
+h1 {
+  /*color: white;*/
+  font-size: 4rem;
+  align-self: center;
 }
 
 header button {
-  width: 6rem;
-  background-color: white;
-  background-image: url('./utility/images/dropdown-icon.png');
-  background-size: cover;
+  width: 8rem;
+  /*background-color: #46505c;
+  color: white;*/
+  font-size: 2rem;
 }
 
 /*Topics*/
@@ -44,8 +50,8 @@ header button {
   margin-top: 7rem;
   width: 50rem;
   height: 25rem;
-  background-color: rgb(192, 187, 187);
-  color: rgb(36, 36, 41);
+  /*background-color: rgb(192, 187, 187);
+  color: rgb(36, 36, 41);*/
 }
 
 .topics h2 {
@@ -85,7 +91,7 @@ form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: #9099a2
+  /*background-color: #9099a2*/
 }
 
 .article-preview {
@@ -98,10 +104,9 @@ form {
   text-align: center;
   justify-content: center;
   align-items: center;
-  background-color: #d5d5d5;
-  border: solid 1px #d5d5d5;
+  /*background-color: #d5d5d5;*/
   border-radius: 5%;
-  box-shadow: 5px 5px 5px #191c22;
+  /*box-shadow: 5px 5px 5px #191c22;*/
 }
 
 .article-preview h2 {
@@ -121,8 +126,9 @@ form {
   width: 60%;
   text-align: left;
   font-size: .70rem;
+  max-height: 150px;
   overflow: hidden;
-  background-color: white;
+  /*background-color: white;*/
   padding: .5rem;
 }
 
@@ -130,7 +136,7 @@ form {
   width: 20%;
   font-size: .75rem;
   padding: 1.5rem 0;
-  background-color: #d5d5d5;
+  /*background-color: #d5d5d5;*/
 }
 
 .filler {
@@ -189,7 +195,9 @@ article {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  /*background-color: white;
+  border: solid 2px #191c22;
+  box-shadow: 5px 5px 5px #191c22;*/
 }
 
 .article-header {
@@ -209,7 +217,8 @@ article {
 
 article button {
   border: none;
-  background-color: white;
+  /*background-color: white;
+  color: blue*/
 }
 
 article h2 {
@@ -228,13 +237,13 @@ article h2 {
 }
 
 .article-content a {
-  width: 80%;
+  width: 100%;
   text-align: center;
 }
 
 .article-content img {
-  width: 30%;
-  height: 30%;
+  max-width: 50%;
+  max-height: 50%;
 }
 
 .article-content-single {
@@ -252,14 +261,18 @@ article h2 {
   margin: 0 auto;
 }
 
+.article-text {
+  width: 80%;
+}
+
 .article-footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 3rem;
   width: 60%;
+  margin: 2rem 0;
 }
-
 
 .up-votes {
   display: flex;
@@ -278,17 +291,20 @@ article h2 {
 .comments-container {
   height: 700px;
   overflow: scroll;
-  background-color: thistle;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  /*background-color: white;
+  border-top: solid 15px #191c22;*/
 }
 
 .comments {
   width: 75%;
   padding-bottom: 3rem;
   margin: 3rem;
-  background-color: white;
+  /*background-color: #d5d5d5;
+  border: solid 1px #191c22;
+  box-shadow: 3px 3px 5px #191c22;*/
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -315,6 +331,7 @@ article h2 {
   text-align: center;
   width: 60%;
   margin: 1rem 5rem;
+  line-height: 1.5rem;
 } 
 
 .comments .up-votes {
@@ -327,10 +344,10 @@ article h2 {
 nav {
   position: fixed;
   right: 0;
-  top: 6rem;
+  top: 7rem;
   width: 12.5%;
-  background-color: black;
-  color: white;
+  /*background-color: black;
+  color: white;*/
 }
 
 nav ul {
