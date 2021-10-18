@@ -81,7 +81,7 @@ export const Article = ({match}) => {
 
     useEffect( () => {
         fetchFullArticle();
-    },[]);
+    });
 
     return (
         <article style={colors.article.article}>

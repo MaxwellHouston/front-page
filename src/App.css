@@ -110,6 +110,7 @@ form {
 
 .article-preview h2 {
   width: 95%;
+  overflow: hidden;
   font-size: 1.4rem;
 }
 
