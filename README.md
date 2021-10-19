@@ -1,44 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Front Page
+## My Reddit client project
 
-## Available Scripts
+This project is a Reddit homepage that takes user input for topics and displays reddit articles pertaining to that topic. It was 
+built using React, React Router, and Redux. Each topic chosen pulls three articles from three diffrent subreddits returning nine artircles related to that topic. As always I appreciate any feedback on the web app, as I am always learning. Thank You!
 
-In the project directory, you can run:
 
-### `yarn start`
+## Build
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The initial render gives you a form that has topic checkboxes to fill out and choose what type of content you want displayed. These topics are then stored in the topics slice. These topics are then paired with the corrisponding subredits and stored in a local state. A thunk is dispatched, using the subreddits to fetch articles from reddit. The order of the articles is then randomized and stored in the articles slice. Once loaded the articles are displayed in a preview form, showing the title, preview, upvotes, awards, and user. There is also a React-Router link that takes the user to a page containing a full version of the article incuding media and comments. This full article is fetched using another dispatch but the article info and comments are stored in a local state. Some settings I included are a night mode toggle for easier reading in the dark and the ability to change the topics you want rendered.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Future work
 
-### `yarn test`
+Some of the future plans for this project are to create a reddit api account and access the full reddit api. This will allow me to search users and display their avatars and flairs on the posts and comments. There will also be a log-in function that allows you to use your own reddit account and load the subreddits that you follow. Another feature to be implemented is a search function that returns articles relating to the search terms.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Documentation
 
-### `yarn build`
+### Subreddits
+This is a list of the topics available and the subbredits that the articles are fetched from:
+```javascript
+    subredditList = {
+        animals: ['cats','NatureIsFuckingLit', 'awww'],
+        cars: ['Autos', 'JDM', 'AwesomeCarMods'],
+        fashion: ['findfashion', 'sneakermarket', 'streetwearstartup'],
+        gaming: ['gaming', 'GamePhysics', 'casualnintendo'],
+        humor: ['nottheonion', 'memes', 'FellowKids'],
+        news: ['worldnews', 'news', 'UpliftingNews'],
+        sports: ['CFB', 'barstoolsports', 'PremierLeague'],
+        tech: ['technews', 'technology', 'Futurology'],
+        travel: ['EarthPorn','travel','landscapes']
+    }
+```
+### Wireframes
+Initial wireframe sketches of the project. *Made on AdobeXD* :
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### Homepage wireframe
+![Homepage Wireframe](./documents/homepage-wireframe.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+##### Homepage with menues open
+![Homepage with opitions](./documents/homepage-options.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##### Mobile Homepage
+![Homepage mobile](./documents/homepage-mobile.png)
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+##### Article and comments page
+![Article page](./documents/article-page.png)
