@@ -44,3 +44,8 @@ Initial wireframe sketches of the project. *Made on AdobeXD* :
 
 ##### Article and comments page
 ![Article page](./documents/article-page.png)
+
+
+## Lighthouse Scores
+
+![lighthouse score](./documents/lighthouse.png)
