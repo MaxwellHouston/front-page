@@ -43,7 +43,35 @@ h1 span {
 
 header button {
   width: 8rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 1000px) {
+
+  header button {
+    position: relative;
+    right: 1rem;
+    bottom: .5rem;
+    width: 15%;
+    font-size: 1rem;
+    border: none;
+    align-self: flex-end;
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h1 span {
+    display: none;
+  }
+
+}
+@media only screen and (max-width: 350px){
+  header button {
+    right: 1.5rem;
+  }
 }
 
 /*Topics*/
@@ -73,6 +101,9 @@ form {
 .input-group {
   width: 30%;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-group label {
@@ -81,9 +112,31 @@ form {
 
 #submit {
   font-size: 2rem;
- width: 30%;
+  width: 30%;
 }
 
+@media only screen and (max-width: 1000px){
+
+  .topics {
+    margin-top: 5rem;
+    width: 75%;
+    height: fit-content;
+  }
+
+  form {
+    height: 90%;
+    margin-bottom: 1.5rem;
+  }
+
+  .input-group {
+    margin: 1rem;
+  }
+
+  #submit {
+    width: 90%;
+  }
+
+}
 /*Article previews*/
 
 .preview-container {
@@ -116,6 +169,7 @@ form {
 
 .large-title {
   font-size: 1rem !important;
+  max-height: 140px;
 }
 
 .thumbnail {
@@ -150,6 +204,12 @@ hr {
   display: flex;
   justify-content: space-between;
   font-size: .5rem;
+}
+
+@media only screen and (max-width: 1000px){
+  .preview-container {
+    width: 100%;
+  }
 }
 
 /*article-awards*/
@@ -280,6 +340,29 @@ article h2 {
   width: 1rem;
 }
 
+@media only screen and (max-width: 1000px){
+
+  article {
+    width: 95%;
+  }
+
+  .back-button {
+    font-size: .5rem;
+  }
+
+  .article-footer {
+    font-size: .5rem;
+    width: 80%;
+  }
+
+  .article-content-single video,
+  .article-content-single img {
+  max-height: 50%;
+  align-self: center;
+}
+
+}
+
 /*Comments*/
 
 .comments-container {
@@ -321,11 +404,32 @@ article h2 {
   width: 60%;
   margin: 1rem 5rem;
   line-height: 1.5rem;
+  overflow: hidden;
 } 
 
 .comments .up-votes {
   margin: .6rem;
   width: auto;
+}
+
+@media only screen and (max-width: 500px) {
+  
+  .comments-body {
+    width: 90%;
+    font-size: .75rem;
+    margin: 1rem .3rem;
+  }
+
+  .comments-header img {
+   height: 2rem;
+   margin-right: 0;
+  }
+
+  .comments-header h2 {
+    margin: 0 1rem;
+    font-size: .8rem;
+  }
+
 }
 
 /*Settings*/
@@ -353,4 +457,16 @@ nav li {
 
 .coming-soon {
   text-decoration: line-through;
+}
+
+@media only screen and (max-width: 1000px) {
+  nav {
+    width: 20%;
+    min-width: 100px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  nav li {
+    font-size: 1rem;
+  }
 }

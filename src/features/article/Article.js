@@ -86,7 +86,7 @@ export const Article = ({match}) => {
     return (
         <article style={colors.article.article}>
         <div className='article-header'>
-            <Link to='/' className='back-button'><button style={colors.article.button}>Back to Front Page</button></Link>
+            <Link to='/' className='back-button'><button style={colors.article.button}>Back</button></Link>
             <h2>{article.title}</h2>
         </div>
         <div className='award-container'>

@@ -22,7 +22,7 @@ function App() {
       <header style={colors.header.header}>
         <img src={logo} alt='reddit-logo' />
         <h1 style={colors.header.headerH1}>Front Page <span>personal Reddit browser</span></h1>
-        <button onClick={()=>{dispatch(toggleSettings())}} style={colors.header.headerButton}>Menu</button>
+        <button onClick={()=>{dispatch(toggleSettings())}} style={colors.header.headerButton}>Settings</button>
       </header>
       <div className="content">
         <Router>
